@@ -7,7 +7,7 @@ const GloblaStyles = createGlobalStyle`
 }
 
 body {
-	background: yellow;
+	background: ${({ theme }) => theme.colors.mainBg};
 }
 `;
 
