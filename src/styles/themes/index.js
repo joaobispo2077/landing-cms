@@ -6,7 +6,12 @@ export const themes = {
 			light: '#FFFFFF',
 			dark: '#0A1128',
 		},
-		fonts: {},
+		font: {
+			family: {
+				primary: "'Open Sans', sans-serif",
+				secondary: "'Montserrat', sans-serif",
+			},
+		},
 		spacings: {},
 	},
 };
