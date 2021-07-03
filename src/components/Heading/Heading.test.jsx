@@ -60,4 +60,21 @@ describe('<Heading />', () => {
 			},
 		);
 	});
+
+	it('should render uppercase text', () => {
+		render(renderTheme(<Heading uppercase>texto</Heading>));
+
+		const heading = screen.getByRole('heading', { name: 'texto' });
+		expect(heading).toHaveStyle({
+			'text-transform': 'uppercase',
+		});
+	});
+
+	it('should render correct element', () => {
+		const { container } = render(renderTheme(<Heading as="h6">texto</Heading>));
+
+		const headingSix = container.querySelector('h6');
+
+		expect(headingSix.tagName.toLowerCase()).toBe('h6');
+	});
 });
