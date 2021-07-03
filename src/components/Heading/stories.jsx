@@ -5,10 +5,10 @@ export default {
 	component: Heading,
 	args: {
 		children: 'O texto está escuro',
+		darken: true,
 	},
 	argTypes: {
 		children: { type: 'string' },
-		lighther: { type: 'boolean' },
 	},
 	parameters: {
 		backgrounds: {
@@ -17,8 +17,8 @@ export default {
 	},
 };
 
-export const Dark = (args) => <Heading {...args} />;
-export const Light = (args) => <Heading {...args} lighther={true} />;
+export const Dark = (args) => <Heading {...args} darken={true} />;
+export const Light = (args) => <Heading {...args} />;
 
 Light.parameters = {
 	backgrounds: {
@@ -28,4 +28,5 @@ Light.parameters = {
 
 Light.args = {
 	children: 'O texto está claro',
+	darken: false,
 };
