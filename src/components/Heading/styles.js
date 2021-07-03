@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const titleSize = {
+const getTitleSize = {
 	small: (theme) => theme.font.sizes.medium,
 	medium: (theme) => theme.font.sizes.large,
 	big: (theme) => theme.font.sizes.xlarge,
@@ -14,17 +14,17 @@ const getMediaFont = (theme) => css`
 	}
 `;
 
-const titleCase = (uppercase) => css`
+const getTitleCase = (uppercase) => css`
 	text-transform: ${uppercase ? 'uppercase' : 'none'};
 `;
 
 export const Title = styled.h1`
 	color: ${({ theme, darken }) =>
 		darken ? theme.colors.dark : theme.colors.light};
-	font-size: ${({ size, theme }) => titleSize[size](theme)};
+	font-size: ${({ size, theme }) => getTitleSize[size](theme)};
 
 	${({ uppercase, theme }) => css`
-		${titleCase(uppercase)}
+		${getTitleCase(uppercase)}
 		${getMediaFont(theme)}
 	`};
 `;
