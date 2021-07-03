@@ -23,5 +23,8 @@ export const themes = {
 			},
 		},
 		spacings: {},
+		media: {
+			lteMedium: 'max-width: 768px',
+		},
 	},
 };

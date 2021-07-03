@@ -6,7 +6,7 @@ export const Heading = ({
 	children,
 	darken = false,
 	as = 'h1',
-	size = 'big',
+	size = 'huge',
 	uppercase = false,
 }) => {
 	return (
