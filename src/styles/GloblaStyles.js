@@ -6,9 +6,9 @@ const GloblaStyles = createGlobalStyle`
 	padding: 0;
 }
 
-body {
+/* body {
 	background: ${({ theme }) => theme.colors.mainBg};
-}
+} */
 `;
 
 export default GloblaStyles;
