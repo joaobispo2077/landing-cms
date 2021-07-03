@@ -8,8 +8,8 @@ const getTitleSize = {
 };
 
 const getMediaFont = (theme) => css`
-	@media (${theme.media.lteMedium}) {
-		font-size: ${theme.font.sizes.small};
+	@media ${theme.media.lteMedium} {
+		font-size: ${theme.font.sizes.xlarge};
 		background: red;
 	}
 `;

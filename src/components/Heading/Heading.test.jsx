@@ -25,4 +25,39 @@ describe('<Heading />', () => {
 			color: themes['default'].colors.dark,
 		});
 	});
+
+	it('should render sizes correctly', () => {
+		const { rerender } = render(
+			renderTheme(<Heading size="small">texto</Heading>),
+		);
+
+		const heading = screen.getByRole('heading', { name: 'texto' });
+		expect(heading).toHaveStyle({
+			'font-size': themes['default'].font.sizes.medium,
+		});
+
+		rerender(renderTheme(<Heading size="medium">texto</Heading>));
+
+		expect(heading).toHaveStyle({
+			'font-size': themes['default'].font.sizes.large,
+		});
+
+		rerender(renderTheme(<Heading size="big">texto</Heading>));
+
+		expect(heading).toHaveStyle({
+			'font-size': themes['default'].font.sizes.xlarge,
+		});
+	});
+
+	it('should adapt font-size when screen is less than 768px', () => {
+		render(renderTheme(<Heading size="huge">texto</Heading>));
+
+		expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyleRule(
+			'font-size',
+			themes['default'].font.sizes.xlarge,
+			{
+				media: themes['default'].media.lteMedium,
+			},
+		);
+	});
 });
