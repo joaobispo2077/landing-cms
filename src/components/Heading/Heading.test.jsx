@@ -77,4 +77,10 @@ describe('<Heading />', () => {
 
 		expect(headingSix.tagName.toLowerCase()).toBe('h6');
 	});
+
+	it('should match with snapshot', () => {
+		const { container } = render(renderTheme(<Heading as="h6">texto</Heading>));
+
+		expect(container.firstChild).toMatchSnapshot();
+	});
 });
