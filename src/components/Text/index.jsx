@@ -1,14 +1,10 @@
 import * as Styled from './styles';
 import P from 'prop-types';
 
-export const Dummy = () => {
-	return (
-		<Styled.Container>
-			<h1>Dummy</h1>
-		</Styled.Container>
-	);
+export const Text = ({ children }) => {
+	return <Styled.Container>{children}</Styled.Container>;
 };
 
-Dummy.propTypes = {
+Text.propTypes = {
 	children: P.oneOfType([P.string, P.node, P.element]),
 };
