@@ -1,13 +1,34 @@
 import { render, screen } from '@testing-library/react';
-import { NavLink } from '.';
-import links from './mock';
+import { NavLinks } from '.';
+import mocks from './mock';
 import { renderTheme } from '../../styles/themes/renderTheme';
-// import { themes } from '../../styles/themes';
+import { themes } from '../../styles/themes';
 
 describe('<NavLink/>', () => {
-	it('should render', () => {
-		render(renderTheme(<NavLink links={links}>Texto</NavLink>));
+	it('should render links', () => {
+		render(renderTheme(<NavLinks links={mocks} />));
 
-		expect(screen.getByRole('heading')).toBeInTheDocument();
+		expect(screen.getAllByRole('link')).toHaveLength(mocks.length);
+	});
+
+	it('should not render links', () => {
+		render(renderTheme(<NavLinks />));
+
+		expect(screen.queryAllByText(/links/i)).toHaveLength(0);
+	});
+
+	it('should render link', () => {
+		render(renderTheme(<NavLinks links={mocks} />));
+		const element = screen.queryByText(/link 5/i).parentElement;
+
+		expect(element.parentElement).toHaveStyleRule('flex-flow', 'column wrap', {
+			media: themes['default'].media.lteMedium,
+		});
+	});
+
+	it('should match with snapshot', () => {
+		render(renderTheme(<NavLinks links={mocks} />));
+
+		expect(screen.getAllByRole('link')).toMatchSnapshot();
 	});
 });

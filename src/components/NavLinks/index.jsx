@@ -6,7 +6,7 @@ export const NavLinks = ({ links = [] }) => {
 	return (
 		<Styled.Container>
 			{links.map((link) => (
-				<MenuLink key={link} {...link} />
+				<MenuLink key={link.children} {...link} />
 			))}
 		</Styled.Container>
 	);
@@ -19,5 +19,5 @@ NavLinks.propTypes = {
 			link: P.string.isRequired,
 			newTab: P.bool,
 		}),
-	).isRequired,
+	),
 };
