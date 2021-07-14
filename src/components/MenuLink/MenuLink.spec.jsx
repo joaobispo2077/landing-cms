@@ -24,9 +24,11 @@ describe('<MenuLink/>', () => {
 	});
 
 	it('should match with snapshot', () => {
-		render(renderTheme(<MenuLink link="http://google.com.br">Texto</MenuLink>));
+		const { container } = render(
+			renderTheme(<MenuLink link="http://google.com.br">Texto</MenuLink>),
+		);
 
-		expect(screen.getByRole('link')).toMatchInlineSnapshot(`
+		expect(container.firstChild).toMatchInlineSnapshot(`
 		.c0 {
 		  display: block;
 		  -webkit-text-decoration: none;
