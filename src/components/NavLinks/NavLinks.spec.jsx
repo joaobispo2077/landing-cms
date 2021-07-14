@@ -21,14 +21,14 @@ describe('<NavLink/>', () => {
 		render(renderTheme(<NavLinks links={mocks} />));
 		const element = screen.queryByText(/link 5/i).parentElement;
 
-		expect(element.parentElement).toHaveStyleRule('flex-flow', 'column wrap', {
+		expect(element).toHaveStyleRule('flex-flow', 'column wrap', {
 			media: themes['default'].media.lteMedium,
 		});
 	});
 
 	it('should match with snapshot', () => {
-		render(renderTheme(<NavLinks links={mocks} />));
+		const { container } = render(renderTheme(<NavLinks links={mocks} />));
 
-		expect(screen.getAllByRole('link')).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

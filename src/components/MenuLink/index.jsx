@@ -5,7 +5,7 @@ export const MenuLink = ({ children, link, newTab = false }) => {
 	const target = newTab ? '_blank' : '_self';
 	return (
 		<Styled.Container href={link} target={target}>
-			<h1>{children}</h1>
+			{children}
 		</Styled.Container>
 	);
 };

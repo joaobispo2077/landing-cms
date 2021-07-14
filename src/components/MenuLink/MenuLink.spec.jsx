@@ -59,9 +59,7 @@ describe('<MenuLink/>', () => {
 		  href="http://google.com.br"
 		  target="_self"
 		>
-		  <h1>
-		    Texto
-		  </h1>
+		  Texto
 		</a>
 	`);
 	});
