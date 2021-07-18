@@ -5,11 +5,11 @@ import { Heading } from '../Heading';
 
 export const LogoLink = ({ text, src = null, link }) => {
 	return (
-		<Styled.Container href={link}>
-			<Heading size="small" uppercase darken>
+		<Heading size="small" uppercase darken>
+			<Styled.Container href={link}>
 				{src ? <img src={src} alt={text} /> : text}
-			</Heading>
-		</Styled.Container>
+			</Styled.Container>
+		</Heading>
 	);
 };
 
