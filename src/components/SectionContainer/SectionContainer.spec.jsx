@@ -5,8 +5,16 @@ import { renderTheme } from '../../styles/themes/renderTheme';
 
 describe('<SectionContainer/>', () => {
 	it('should render', () => {
-		render(renderTheme(<SectionContainer>Texto</SectionContainer>));
+		const { container } = render(
+			renderTheme(
+				<SectionContainer>
+					{' '}
+					<h1>Texto</h1>
+				</SectionContainer>,
+			),
+		);
 
 		expect(screen.getByRole('heading')).toBeInTheDocument();
+		expect(container).toMatchSnapshot();
 	});
 });
