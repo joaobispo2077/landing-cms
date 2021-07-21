@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { Container as SectionContainer } from '../SectionContainer/styles';
 import { Title as Heading } from '../Heading/styles';
 
@@ -63,5 +64,29 @@ export const MenuContainer = styled.div`
 `;
 
 export const Button = styled.button`
-	${() => css``}
+	${({ theme }) => css`
+		z-index: 6;
+		position: fixed;
+		top: 2rem;
+		right: 2rem;
+		width: 4rem;
+		height: 4rem;
+		background: ${theme.colors.primary};
+		color: ${theme.colors.light};
+		cursor: pointer;
+		border: none;
+		display: none;
+		/* transition: all 3s ease-in-out; */
+
+		@media ${theme.media.lteMedium} {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		> svg {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	`}
 `;
