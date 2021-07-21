@@ -1,12 +1,11 @@
-import { Heading } from '../../components/Heading';
+import { Menu } from '../../components/Menu';
 import * as Styled from './styles';
 
 function Home() {
 	return (
 		<div>
 			<Styled.Wrapper>
-				<Heading>Hello word</Heading>
-				<h1>...</h1>
+				<Menu />
 			</Styled.Wrapper>
 		</div>
 	);
