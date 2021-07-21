@@ -4,7 +4,7 @@ import { Container as SectionContainer } from '../SectionContainer/styles';
 import { Title as Heading } from '../Heading/styles';
 
 export const Container = styled.div`
-	${({ theme }) => css`
+	${({ theme, visible }) => css`
 		position: fixed;
 		z-index: 5;
 		top: 0;
@@ -15,6 +15,7 @@ export const Container = styled.div`
 
 		background: ${theme.colors.light};
 		border-bottom: ${theme.colors.mediumGray};
+		transition: all 300ms ease-out;
 
 		& > ${SectionContainer} {
 			padding-top: 0;
@@ -28,6 +29,8 @@ export const Container = styled.div`
 
 		@media ${theme.media.lteMedium} {
 			height: 100vh;
+			visibility: ${visible ? 'visible' : 'hidden'};
+			opacity: ${visible ? 1 : 0};
 
 			& > ${SectionContainer} {
 				display: grid;
@@ -76,7 +79,6 @@ export const Button = styled.button`
 		cursor: pointer;
 		border: none;
 		display: none;
-		/* transition: all 3s ease-in-out; */
 
 		@media ${theme.media.lteMedium} {
 			display: flex;
