@@ -84,11 +84,11 @@ exports[`<GridTwoColumn/> should match with snapshot 1`] = `
           >
             GridTwoColumn
           </h2>
-          <p
+          <footer
             class="c6"
           >
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit quisquam aspernatur sed quos, dolore cum eveniet magnam at consequatur totam iste minus, blanditiis obcaecati eos rerum sunt dolorum perferendis. Nam?
-          </p>
+          </footer>
         </div>
         <div
           class=""

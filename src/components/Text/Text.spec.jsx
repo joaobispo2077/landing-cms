@@ -11,9 +11,9 @@ describe('<Text/>', () => {
 	});
 
 	it('should have correct size', () => {
-		const { container } = render(renderTheme(<Text>Texto</Text>));
+		render(renderTheme(<Text>Texto</Text>));
 
-		const text = container.querySelector('p');
+		const text = screen.queryByText('Texto');
 
 		expect(text).toHaveStyle({
 			'font-size': themes['default'].font.sizes.medium,
@@ -28,11 +28,11 @@ describe('<Text/>', () => {
 		  font-size: 2.4rem;
 		}
 
-		<p
+		<footer
 		  class="c0"
 		>
 		  Texto
-		</p>
+		</footer>
 	`);
 	});
 });
