@@ -1,12 +1,20 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { GridContent } from '.';
 import { renderTheme } from '../../styles/themes/renderTheme';
-// import { themes } from '../../styles/themes';
+import mock from './mock';
 
 describe('<GridContent/>', () => {
-	it('should render', () => {
-		render(renderTheme(<GridContent>Texto</GridContent>));
+	it('should rendar without brackground', () => {
+		const { container } = render(
+			renderTheme(<GridContent {...mock} hasBackground={false} />),
+		);
 
-		expect(screen.getByRole('heading')).toBeInTheDocument();
+		expect(container.firstChild).toBeInTheDocument();
+	});
+
+	it('should match with snapshot', () => {
+		const { container } = render(renderTheme(<GridContent {...mock} />));
+
+		expect(container).toMatchSnapshot();
 	});
 });
