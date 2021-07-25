@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
-import { GridSection } from '.';
+import { GridText } from '.';
 import { renderTheme } from '../../styles/themes/renderTheme';
 import mock from './mock';
 
-describe('<GridSection/>', () => {
+describe('<GridText/>', () => {
 	it('should match with snapshot', () => {
-		const { container } = render(renderTheme(<GridSection {...mock} />));
+		const { container } = render(renderTheme(<GridText {...mock} />));
 
 		expect(container).toMatchSnapshot();
 	});

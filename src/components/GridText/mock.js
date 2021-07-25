@@ -1,5 +1,5 @@
 export default {
-	background: false,
+	hasBackground: false,
 	title: 'My grid',
 	description:
 		'Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde',
