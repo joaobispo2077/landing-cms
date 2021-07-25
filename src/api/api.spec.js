@@ -15,14 +15,20 @@ describe('api', () => {
 	});
 
 	it('should map data when there is data', () => {
-		const pageData = mapData({ footer_text: '<p> Hello World </p>' });
+		const pageData = mapData({
+			footer_text: '<p> Hello World </p>',
+			slug: 'slug',
+			title: 'title',
+			sections: [{}, {}, {}],
+			menu: { a: 'b' },
+		});
 		expect(pageData).toEqual(
 			expect.objectContaining({
 				footer: '<p> Hello World </p>',
-				slug: '',
-				title: '',
-				sections: [],
-				menu: {},
+				slug: 'slug',
+				title: 'title',
+				sections: [{}, {}, {}],
+				menu: { a: 'b' },
 			}),
 		);
 	});
