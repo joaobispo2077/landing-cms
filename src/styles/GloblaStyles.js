@@ -30,6 +30,9 @@ const GloblaStyles = createGlobalStyle`
 		padding: ${({ theme }) => theme.spacings.medium} 0;
 	}
 
+	a {
+		color: ${({ theme }) => theme.colors.secondary}
+	}
 
 
 `;
