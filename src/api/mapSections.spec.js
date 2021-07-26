@@ -1,9 +1,34 @@
-import { mapSectionTwoColumns, mapSections } from './mapSections';
+import {
+	mapSectionTwoColumns,
+	mapSectionContent,
+	mapSections,
+} from './mapSections';
 
 describe('Map sections', () => {
 	it('should render predefined section if no data is provided', () => {
 		const data = mapSections();
 		expect(data).toEqual([]);
+	});
+
+	it('should map section content', () => {
+		const data = mapSectionContent({
+			__component: 'section.section-content',
+			title: 'news coverage and some surprises',
+			metadata: {
+				background: false,
+				section_id: 'intro',
+			},
+			content:
+				'<p>The release of Apple Silicon-based Macs at the end of last year generated a flurry of news coverage and some surprises at the machine’s performance. This post details some background information on the experience of porting Firefox to run natively on these CPUs.</p><p>We’ll start with some background on the Mac transition and give an overview of Firefox internals that needed to know about the new architecture, before moving on to the concept of Universal Binaries.</p><p>We’ll then explain how DRM/EME works on the new platform, talk about our experience with macOS Big Sur, and discuss various updater problems we had to deal with. We’ll conclude with the release and an overview of various other improvements that are in the pipeline.</p>',
+		});
+
+		expect(data).toEqual({
+			background: false,
+			component: 'section.section-content',
+			html: '<p>The release of Apple Silicon-based Macs at the end of last year generated a flurry of news coverage and some surprises at the machine’s performance. This post details some background information on the experience of porting Firefox to run natively on these CPUs.</p><p>We’ll start with some background on the Mac transition and give an overview of Firefox internals that needed to know about the new architecture, before moving on to the concept of Universal Binaries.</p><p>We’ll then explain how DRM/EME works on the new platform, talk about our experience with macOS Big Sur, and discuss various updater problems we had to deal with. We’ll conclude with the release and an overview of various other improvements that are in the pipeline.</p>',
+			sectionId: 'intro',
+			title: 'news coverage and some surprises',
+		});
 	});
 
 	it('should map sections two columns', () => {
@@ -29,7 +54,7 @@ describe('Map sections', () => {
 				caption: 'Pessoas segurando logos do HTML, CSS e Javascript',
 				hash: 'javascript_b9d280e07f',
 				ext: '.svg',
-				mime: 'image/svg+xml',
+				mime: 'image/svgxml',
 				size: 30.31,
 				url: 'https://res.cloudinary.com/dtzgb4r5p/image/upload/v1625238996/javascript_b9d280e07f.svg',
 				provider_metadata: {
