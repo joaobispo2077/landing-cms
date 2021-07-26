@@ -1,6 +1,6 @@
 import { mapData } from '.';
 
-describe('api', () => {
+describe('Map data', () => {
 	it('should map data even if there is no data', () => {
 		const pageData = mapData();
 		expect(pageData).toEqual(
@@ -8,8 +8,6 @@ describe('api', () => {
 				footer: '',
 				slug: '',
 				title: '',
-				sections: [],
-				menu: {},
 			}),
 		);
 	});
@@ -19,16 +17,12 @@ describe('api', () => {
 			footer_text: '<p> Hello World </p>',
 			slug: 'slug',
 			title: 'title',
-			sections: [{}, {}, {}],
-			menu: { a: 'b' },
 		});
 		expect(pageData).toEqual(
 			expect.objectContaining({
 				footer: '<p> Hello World </p>',
 				slug: 'slug',
 				title: 'title',
-				sections: [{}, {}, {}],
-				menu: { a: 'b' },
 			}),
 		);
 	});
