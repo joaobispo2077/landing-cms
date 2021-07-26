@@ -1,6 +1,11 @@
-import { mapSectionTwoColumns } from './mapSections';
+import { mapSectionTwoColumns, mapSections } from './mapSections';
 
 describe('Map sections', () => {
+	it('should render predefined section if no data is provided', () => {
+		const data = mapSections();
+		expect(data).toEqual([]);
+	});
+
 	it('should map sections two columns', () => {
 		const data = mapSectionTwoColumns({
 			__component: 'section.section-two-columns',
