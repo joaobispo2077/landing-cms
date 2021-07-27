@@ -5,6 +5,7 @@ import { Menu } from '../../components/Menu';
 import { Footer } from '../../components/Footer';
 import { GoTop } from '../../components/GoTop';
 
+// eslint-disable-next-line no-unused-vars
 export const Base = ({ links = [], logo, footer, children }) => {
 	return (
 		<>
@@ -20,6 +21,6 @@ export const Base = ({ links = [], logo, footer, children }) => {
 
 Base.propTypes = {
 	...Menu.propTypes,
-	foo: P.string,
+	footer: P.oneOfType([P.node, P.element]),
 	children: P.oneOfType([P.string, P.node, P.element]),
 };

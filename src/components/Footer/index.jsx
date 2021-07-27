@@ -14,5 +14,5 @@ export const Footer = ({ html }) => {
 };
 
 Footer.propTypes = {
-	html: P.oneOfType([P.string, P.node, P.element]),
+	html: P.oneOfType([P.node, P.element]),
 };

@@ -8,5 +8,5 @@ export const Text = ({ children }) => {
 };
 
 Text.propTypes = {
-	children: P.oneOfType([P.string, P.node, P.element]),
+	children: P.oneOfType([P.node, P.element]),
 };
