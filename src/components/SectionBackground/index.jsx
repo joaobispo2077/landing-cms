@@ -8,7 +8,7 @@ export const SectionBackground = ({
 	background = false,
 	sectionId = '',
 }) => {
-	const id = sectionId ? sectionId : `id-${Math.random() * 61651}`;
+	const id = sectionId ? sectionId : '';
 
 	return (
 		<Styled.Container id={id} background={background}>

@@ -1,6 +1,8 @@
 // import { Menu } from '../../components/Menu';
 // import * as Styled from './styles';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import { Base } from '../Base';
 
 import { NotFound } from '../NotFound';
@@ -14,12 +16,12 @@ import { GridImage } from '../../components/GridImage';
 
 function Home() {
 	const [pageData, setPageData] = useState([]);
+	const location = useLocation();
 
-	const fetchPageData = async () => {
+	const fetchPageData = async (slug) => {
+		console.log('fetching...', slug);
 		try {
-			const response = await fetch(
-				'http://localhost:1337/pages/?slug=landing-page',
-			);
+			const response = await fetch(`http://localhost:1337/pages/?slug=${slug}`);
 			const data = await response.json();
 
 			const page = mapData(data[0]);
@@ -27,13 +29,20 @@ function Home() {
 			setPageData(page);
 			console.log(page);
 		} catch (error) {
+			console.error(error);
 			setPageData(undefined);
 		}
 	};
 
 	useEffect(() => {
-		fetchPageData();
-	}, []);
+		const pathname = location.pathname
+			.replace(/[^a-z0-9]-_/gi, '')
+			.replace('/', '');
+
+		const slug = pathname ? pathname : 'landing-page';
+		console.log('slug is ', slug);
+		fetchPageData(slug);
+	}, [location]);
 
 	if (pageData === undefined) {
 		return <NotFound />;
@@ -55,22 +64,18 @@ function Home() {
 				const key = `${slug}-${index}`;
 
 				if (component === 'section.section-two-columns') {
-					console.log('two column', section);
 					return <GridTwoColumn key={key} {...section} />;
 				}
 
 				if (component === 'section.section-content') {
-					console.log('grid - content', section);
 					return <GridContent key={key} {...section} />;
 				}
 
 				if (component === 'section.section-grid-text') {
-					console.log('grid - text', section);
 					return <GridText key={key} {...section} />;
 				}
 
 				if (component === 'section.section-grid-image') {
-					console.log('grid - image', section);
 					return <GridImage key={key} {...section} />;
 				}
 
