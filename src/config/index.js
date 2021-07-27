@@ -1,5 +1,5 @@
 export default {
-	url: 'http://localhost:1337/pages/?slug=',
+	url: 'https://landing-cms-api.herokuapp.com/pages/?slug=',
 	site: 'Landing',
 	defaultSlug: 'landing-page',
 };
