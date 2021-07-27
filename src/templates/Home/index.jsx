@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import config from '../../config';
+
 import { Base } from '../Base';
 
 import { NotFound } from '../NotFound';
@@ -21,7 +23,7 @@ function Home() {
 	const fetchPageData = async (slug) => {
 		console.log('fetching...', slug);
 		try {
-			const response = await fetch(`http://localhost:1337/pages/?slug=${slug}`);
+			const response = await fetch(`${config.url}${slug}`);
 			const data = await response.json();
 
 			const page = mapData(data[0]);
@@ -39,10 +41,26 @@ function Home() {
 			.replace(/[^a-z0-9]-_/gi, '')
 			.replace('/', '');
 
-		const slug = pathname ? pathname : 'landing-page';
+		const slug = pathname ? pathname : config.defaultSlug;
 		console.log('slug is ', slug);
 		fetchPageData(slug);
 	}, [location]);
+
+	useEffect(() => {
+		const baseName = config.site;
+
+		if (pageData === undefined) {
+			document.title = `Página não encontrada | ${baseName}`;
+		}
+
+		if (pageData && !pageData.slug) {
+			document.title = `Carregando... | ${baseName}`;
+		}
+
+		if (pageData && pageData.title) {
+			document.title = `${pageData.title} | ${baseName}`;
+		}
+	}, [pageData]);
 
 	if (pageData === undefined) {
 		return <NotFound />;
