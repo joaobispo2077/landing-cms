@@ -6,7 +6,7 @@ export const mapMenu = (menu = {}) => {
 		logo: { url: src = '' } = {},
 		menu_link: links = [],
 	} = menu;
-	console.log('srcc', src);
+
 	return { newTab, text, link, src, links: mapMenuLinks(links) };
 };
 
