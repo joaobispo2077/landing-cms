@@ -3,9 +3,15 @@ import P from 'prop-types';
 
 import { SectionContainer } from '../SectionContainer';
 
-export const SectionBackground = ({ children, background = false }) => {
+export const SectionBackground = ({
+	children,
+	background = false,
+	sectionId = '',
+}) => {
+	const id = sectionId ? sectionId : `id-${Math.random() * 61651}`;
+
 	return (
-		<Styled.Container background={background}>
+		<Styled.Container id={id} background={background}>
 			<SectionContainer>{children}</SectionContainer>
 		</Styled.Container>
 	);
@@ -14,4 +20,5 @@ export const SectionBackground = ({ children, background = false }) => {
 SectionBackground.propTypes = {
 	children: P.oneOfType([P.string, P.node, P.element]),
 	background: P.bool,
+	sectionId: P.string,
 };
