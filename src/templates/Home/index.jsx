@@ -5,10 +5,11 @@ import { Base } from '../Base';
 import mockBase from '../Base/mock';
 
 import { NotFound } from '../NotFound';
+import { Loading } from '../Loading';
 import { mapData } from '../../api/index';
 
 function Home() {
-	const [pageData, setPageData] = useState(undefined);
+	const [pageData, setPageData] = useState([]);
 
 	const fetchPageData = async () => {
 		try {
@@ -18,6 +19,7 @@ function Home() {
 			const data = await response.json();
 
 			const page = mapData(data[0]);
+
 			setPageData(page);
 			console.log(page);
 		} catch (error) {
@@ -34,7 +36,7 @@ function Home() {
 	}
 
 	if (pageData && !pageData.slug) {
-		return <h1>Carregando...</h1>;
+		return <Loading />;
 	}
 
 	return <Base {...mockBase} />;
