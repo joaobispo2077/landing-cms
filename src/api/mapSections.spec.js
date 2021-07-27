@@ -2,6 +2,7 @@ import {
 	mapSectionTwoColumns,
 	mapSectionContent,
 	mapSections,
+	mapTextGrid,
 } from './mapSections';
 
 describe('Map sections', () => {
@@ -29,6 +30,83 @@ describe('Map sections', () => {
 			sectionId: 'intro',
 			title: 'news coverage and some surprises',
 		});
+	});
+
+	it('shoud map section text grid', () => {
+		const data = mapTextGrid({
+			__component: 'section.section-grid',
+			_id: '60df303eb90cfa3918d450aa',
+			title: 'My grid.',
+			description:
+				'Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+			metadata: {
+				background: false,
+				section_id: 'grid',
+			},
+			text_grid: [
+				{
+					_id: '60df303eb90cfa3918d450ab',
+					title: 'Teste 1',
+					description:
+						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias. Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+					__v: 0,
+					id: '60df303eb90cfa3918d450ab',
+				},
+				{
+					_id: '60df303eb90cfa3918d450ac',
+					description:
+						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias. Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+					title: 'Teste 2',
+					__v: 0,
+					id: '60df303eb90cfa3918d450ac',
+				},
+				{
+					_id: '60df303eb90cfa3918d450ad',
+					description:
+						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias. Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+					title: 'Teste 3',
+					__v: 0,
+					id: '60df303eb90cfa3918d450ad',
+				},
+			],
+		});
+
+		expect(data).toEqual(
+			expect.objectContaining({
+				component: 'section.section-grid',
+				title: 'My grid.',
+				description:
+					'Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+				hasBackground: false,
+				sectionId: 'grid',
+				grid: [
+					{
+						_id: '60df303eb90cfa3918d450ab',
+						title: 'Teste 1',
+						description:
+							'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias. Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+						__v: 0,
+						id: '60df303eb90cfa3918d450ab',
+					},
+					{
+						_id: '60df303eb90cfa3918d450ac',
+						description:
+							'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias. Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+						title: 'Teste 2',
+						__v: 0,
+						id: '60df303eb90cfa3918d450ac',
+					},
+					{
+						_id: '60df303eb90cfa3918d450ad',
+						description:
+							'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias. Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde, reprehenderit minus ad dolores provident maiores.',
+						title: 'Teste 3',
+						__v: 0,
+						id: '60df303eb90cfa3918d450ad',
+					},
+				],
+			}),
+		);
 	});
 
 	it('should map sections two columns', () => {
