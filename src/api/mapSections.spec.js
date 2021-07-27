@@ -6,10 +6,52 @@ import {
 	mapImageGrid,
 } from './mapSections';
 
+import mockSections from './data.json';
+
 describe('Map sections', () => {
 	it('should render predefined section if no data is provided', () => {
 		const data = mapSections();
 		expect(data).toEqual([]);
+	});
+
+	it('should render sections with correct data', () => {
+		const data = mapSections(mockSections.sections);
+		expect(data[0]).toEqual(
+			expect.objectContaining({
+				component: 'section.section-two-columns',
+			}),
+		);
+	});
+
+	it('should receive section when sent invalid text/image grid', () => {
+		const withoutTextGrid = [
+			{
+				__component: 'section.section-grid',
+				text_grid: undefined,
+			},
+		];
+		const withoutImageGrid = [
+			{
+				__component: 'section.section-grid',
+				text_grid: undefined,
+			},
+		];
+
+		expect(mapSections(withoutTextGrid)).toEqual(withoutTextGrid);
+		expect(mapSections(withoutImageGrid)).toEqual(withoutImageGrid);
+	});
+
+	it('should receive section when sent invalid data', () => {
+		const withoutTextOrImageGrid = [
+			{
+				__component: 'section.section-grid',
+			},
+		];
+
+		const withoutComponent = [{}];
+
+		expect(mapSections(withoutTextOrImageGrid)).toEqual(withoutTextOrImageGrid);
+		expect(mapSections(withoutComponent)).toEqual(withoutComponent);
 	});
 
 	it('should map section content', () => {
