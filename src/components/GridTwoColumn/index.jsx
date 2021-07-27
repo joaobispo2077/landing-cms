@@ -5,18 +5,18 @@ import { SectionBackground } from '../SectionBackground';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 
-export const GridTwoColumn = ({ title, text, src, hasBackground }) => {
+export const GridTwoColumn = ({ title, description, image, background }) => {
 	return (
-		<SectionBackground background={hasBackground}>
-			<Styled.Container background={hasBackground}>
+		<SectionBackground background={background}>
+			<Styled.Container background={background}>
 				<Styled.TextContainer>
-					<Heading darken={!hasBackground} uppercase as="h2">
+					<Heading darken={!background} uppercase as="h2">
 						{title}
 					</Heading>
-					<Text>{text}</Text>
+					<Text>{description}</Text>
 				</Styled.TextContainer>
 				<Styled.ImageContainer>
-					<Styled.Image src={src} alt={title} />
+					<Styled.Image src={image.url} alt={image.alternativeText} />
 				</Styled.ImageContainer>
 			</Styled.Container>
 		</SectionBackground>
@@ -25,7 +25,10 @@ export const GridTwoColumn = ({ title, text, src, hasBackground }) => {
 
 GridTwoColumn.propTypes = {
 	title: P.string,
-	text: P.string,
-	src: P.string,
-	hasBackground: P.bool,
+	description: P.string,
+	image: P.shape({
+		url: P.string,
+		alternativeText: P.string,
+	}),
+	background: P.bool,
 };

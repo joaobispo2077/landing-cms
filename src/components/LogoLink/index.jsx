@@ -4,6 +4,7 @@ import P from 'prop-types';
 import { Heading } from '../Heading';
 
 export const LogoLink = ({ text, src = null, link }) => {
+	console.log('logo link', text, src, link);
 	return (
 		<Heading size="small" uppercase darken>
 			<Styled.Container href={link}>

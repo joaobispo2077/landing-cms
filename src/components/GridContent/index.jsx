@@ -5,11 +5,11 @@ import { SectionBackground } from '../SectionBackground';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 
-export const GridContent = ({ title, html, hasBackground = false }) => {
+export const GridContent = ({ title, html, background = false }) => {
 	return (
-		<SectionBackground background={hasBackground}>
+		<SectionBackground background={background}>
 			<Styled.Container>
-				<Heading uppercase darken={!hasBackground} as="h2">
+				<Heading uppercase darken={!background} as="h2">
 					{title}
 				</Heading>
 				<Styled.Html>
@@ -23,5 +23,5 @@ export const GridContent = ({ title, html, hasBackground = false }) => {
 GridContent.propTypes = {
 	title: P.string,
 	html: P.oneOfType([P.node, P.element, P.string]),
-	hasBackground: P.bool,
+	background: P.bool,
 };

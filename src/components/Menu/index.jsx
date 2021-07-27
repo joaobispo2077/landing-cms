@@ -11,6 +11,8 @@ import { NavLinks } from '../NavLinks';
 export const Menu = ({ links = [], logo }) => {
 	const [visible, setVisible] = useState(false);
 
+	console.log('logoo', logo);
+
 	const toggleMenuVisibility = () => {
 		setVisible((prevVisible) => !prevVisible);
 	};
