@@ -29,6 +29,7 @@ exports[`<GridContent/> should match with snapshot 1`] = `
   max-width: 120rem;
   margin: 0 auto;
   padding: 3.2rem;
+  width: 100%;
 }
 
 .c3 {
@@ -50,6 +51,7 @@ exports[`<GridContent/> should match with snapshot 1`] = `
 <div>
   <section
     class="c0"
+    id=""
   >
     <section
       class="c1"

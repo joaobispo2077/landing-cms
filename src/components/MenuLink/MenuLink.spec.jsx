@@ -60,9 +60,7 @@ describe('<MenuLink/>', () => {
 		  class="c0"
 		  href="http://google.com.br"
 		  target="_self"
-		>
-		  Texto
-		</a>
+		/>
 	`);
 	});
 });
