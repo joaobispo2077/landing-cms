@@ -1,15 +1,9 @@
-import React from 'react';
 import * as Styled from './styles';
+import P from 'prop-types';
 
 import { Text } from '../Text';
 import { SectionContainer } from '../SectionContainer';
-
-export type FooterProps = {
-	html: string;
-};
-
-
-export const Footer = ({ html }: FooterProps) => {
+export const Footer = ({ html }) => {
 	return (
 		<Styled.Container>
 			<SectionContainer>
@@ -19,3 +13,6 @@ export const Footer = ({ html }: FooterProps) => {
 	);
 };
 
+Footer.propTypes = {
+	html: P.oneOfType([P.node, P.element]),
+};
